@@ -68,7 +68,6 @@ public class HeroInventory implements Inventory {
 
             if (requiredItems.isEmpty()) {
                 this.combineRecipe(recipe);
-                break;
             }
         }
     }

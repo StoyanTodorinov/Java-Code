@@ -52,12 +52,12 @@ public class HeroDatabase implements Repository {
             long sumAStats = a.getValue().getAgility() + a.getValue().getIntelligence() + a.getValue().getStrength();
             long sumBStats = b.getValue().getAgility() + b.getValue().getIntelligence() + b.getValue().getStrength();
 
-            if (sumAStats == sumBStats) {
+            if (Long.compare(sumBStats, sumAStats) == 0) {
                 return Long.compare((b.getValue().getDamage() + b.getValue().getHitPoints())
                         , (a.getValue().getDamage() + a.getValue().getHitPoints()));
-            } else {
-                return Long.compare(sumBStats, sumAStats);
             }
+
+            return Long.compare(sumBStats, sumAStats);
         };
 
         StringBuilder sb = new StringBuilder();

@@ -6,7 +6,6 @@ import hell.entities.heroes.Barbarian;
 import hell.entities.heroes.Wizard;
 
 public final class HeroFactory {
-
     private static final String WIZARD = "Wizard";
     private static final String BARBARIAN = "Barbarian";
     private static final String ASSASSIN = "Assassin";

@@ -2,7 +2,9 @@ package hell.enums;
 
 public enum HeroTypes {
 
-    BARBARIAN(90, 25, 10, 350, 150), ASSASSIN(25, 100, 15, 150, 300), WIZARD(25, 25, 100, 100, 250);
+    BARBARIAN(90, 25, 10, 350, 150),
+    ASSASSIN(25, 100, 15, 150, 300),
+    WIZARD(25, 25, 100, 100, 250);
 
     private int strength;
     private int agility;

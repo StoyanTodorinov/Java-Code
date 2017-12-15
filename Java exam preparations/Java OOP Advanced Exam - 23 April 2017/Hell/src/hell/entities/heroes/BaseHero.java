@@ -1,8 +1,8 @@
 package hell.entities.heroes;
 
-import hell.entities.miscellaneous.HeroInventory;
 import hell.entities.miscellaneous.ItemCollection;
 import hell.enums.HeroTypes;
+import hell.factories.HeroInventoryFactory;
 import hell.interfaces.Hero;
 import hell.interfaces.Inventory;
 import hell.interfaces.Item;
@@ -42,17 +42,8 @@ public abstract class BaseHero implements Hero {
     BaseHero(String name, String heroType) {
         this.name = name;
         setStats(heroType);
-        this.inventory = new HeroInventory();
+        this.inventory = HeroInventoryFactory.createInventory();
         this.items = new LinkedHashMap<>();
-    }
-
-    private void setStats(String heroType) {
-        HeroTypes hero = HeroTypes.valueOf(heroType.toUpperCase());
-        this.strength = hero.getStrength();
-        this.agility = hero.getAgility();
-        this.intelligence = hero.getIntelligence();
-        this.hitPoints = hero.getHitPoints();
-        this.damage = hero.getDamage();
     }
 
     @Override
@@ -184,5 +175,14 @@ public abstract class BaseHero implements Hero {
             this.hitPoints += item.getHitPointsBonus();
             this.damage += item.getDamageBonus();
         }
+    }
+
+    private void setStats(String heroType) {
+        HeroTypes hero = HeroTypes.valueOf(heroType.toUpperCase());
+        this.strength = hero.getStrength();
+        this.agility = hero.getAgility();
+        this.intelligence = hero.getIntelligence();
+        this.hitPoints = hero.getHitPoints();
+        this.damage = hero.getDamage();
     }
 }
